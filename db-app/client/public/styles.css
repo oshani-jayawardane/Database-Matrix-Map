@@ -1,0 +1,176 @@
+/* other colors to use #525252 */
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: "lato", sans-serif;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.link p {
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+body {
+  background: #313131;
+  color: #fff;
+  padding: 0 16px;
+  font-weight: 400;
+  /* line-height: 1.666; */
+}
+
+header {
+  background: #ca3e47;
+  margin: auto -16px;
+  padding: 8px 16px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  font-size: 1.5rem;
+  text-align: left;
+  padding: 16px;
+  font-weight: 700;
+}
+
+footer {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 2.5rem;
+}
+
+footer p {
+  color: #ccc;
+}
+
+.model-card {
+  background-color: #414141;
+  width: 95%;
+  border-radius: 10px;
+  margin: 16px auto;
+  padding: 20px;
+}
+
+.model-card h2 {
+  font-size: 1rem;
+}
+
+.tile-parent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.tile {
+  width: 150px;
+  border-radius: 10px;
+  margin: 20px;
+  background-color: #d9d9d9;
+  color: #000;
+  text-align: center;
+}
+
+.tile img {
+  margin-top: 10px;
+  width: 100px;
+  height: 100px;
+}
+
+.tile-content {
+  margin: 10px;
+}
+
+.entries {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.entries h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.entry-logo {
+  width: calc(20% - 20px);
+  padding: 20px;
+  text-align: center;
+}
+
+.entry-logo img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.entry-summary {
+  background-color: #525252;
+  width: calc(80% - 20px);
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.entry-item {
+  font-size: 1.25rem;
+  display: flex;
+}
+
+.label {
+  flex: 1;
+  padding-right: 10px;
+}
+
+.detail {
+  flex: 4;
+}
+
+.entry-wide {
+  background-color: #525252;
+  width: 100%;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.entry-wide img {
+  width: 80%;
+  margin: 20px;
+  border-radius: 10px;
+  height: 80%;
+}
+
+.entry-small {
+  background-color: #525252;
+  width: calc(50% - 20px);
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.entry-small li {
+  margin: 5px 0;
+  padding: 3px;
+  font-size: 1.2rem;
+}

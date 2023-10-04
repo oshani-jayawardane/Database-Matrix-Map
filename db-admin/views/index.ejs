@@ -1,0 +1,74 @@
+<%- include('partials/header') %>
+
+    <button class="new-entry"><a href="/admin/add">Add a new entry</a></button>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Image</th>
+                <th>DB Model</th>
+                <th>Secondary Models</th>
+                <th>Vendor</th>
+                <th>DB Flavors</th>
+                <th>Current LTS Release</th>
+                <th>Supported DB Versions</th>
+                <th>Supported OS Versions</th>
+                <th>Replication Tools</th>
+                <th>High Availability</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% dbs.forEach(db=> { %>
+                <tr>
+                    <td>
+                        <%= db.name %>
+                    </td>
+                    <td><img src="<%= db.image %>" alt="<%= db.name %>" width="100"></td>
+                    <td>
+                        <%= db.dbModel %>
+                    </td>
+                    <td>
+                        <%= db.secondaryModels.join(', ') %></td>
+                <td><%= db.vendor %></td>
+                <td><%= db.dbFlavors.join(' , ') %></td>
+                <td><%= db.currentLTSRelease %></td>
+                <td><%= db.supportedDBVersions %></td>
+                <td><%= db.supportedOSVersions %></td>
+                <td><%= db.ReplicationTools.join(' , ') %></td>
+                <td><%= db.HighAvailability.join(' , ') %></td>
+                <td>
+                    <button><a href="/admin/update/<%= db._id %>">Update</a></button>
+                    <button class="delete-btn" data-id="<%= db._id %>" data-name="<%= db.name %>">Delete</button>
+                    </td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+
+    <script>
+        document.querySelectorAll(' .delete-btn').forEach(button => {
+            button.addEventListener('click', function (e) {
+                const id = this.getAttribute('data-id');
+                const name = this.getAttribute('data-name');
+                const userConfirmed = window.confirm(`Do you really want to delete ${name}?`);
+
+                if (userConfirmed) {
+                    fetch(`/admin/${id}`, {
+                        method: 'DELETE'
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            alert("Successfully Deleted!");
+                            window.location.reload();
+                        })
+                        .catch((error) => {
+                            console.error('Error:', error);
+                        });
+                }
+            });
+        });
+    </script>
+
+
+                            <%- include('partials/footer') %>

@@ -1,0 +1,14 @@
+{
+  "name": "db-app",
+  "version": "1.0.0",
+  "description": "Database Matrix Map App",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm start --prefix client\" \"npm start --prefix server\""
+  },
+  "author": "Oshani Jayawardane",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.1"
+  }
+}

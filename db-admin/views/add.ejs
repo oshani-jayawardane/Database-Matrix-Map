@@ -1,0 +1,59 @@
+<%- include('partials/header') %>
+
+    <div class="form-add">
+        <form action="/admin/add" method="post">
+            <label for="name">Database Name:</label><br>
+            <input type="text" name="name" placeholder="Name" required><br>
+
+            <label for="image">Logo Image URL:</label><br>
+            <input type="text" name="image" placeholder="Image URL" required><br>
+
+            <label for="dbModel">Primary Database Model:</label><br>
+            <select name="dbModel" required>
+                <option value="Relational DBMS">Relational DBMS</option>
+                <option value="Key-value stores">Key-value stores</option>
+                <option value="Document stores">Document stores</option>
+                <option value="Time Series DBMS">Time Series DBMS</option>
+                <option value="Graph DBMS">Graph DBMS</option>
+                <option value="Search engines">Search engines</option>
+                <option value="Object oriented DBMS">Object oriented DBMS</option>
+                <option value="RDF stores">RDF stores</option>
+                <option value="Wide column stores">Wide column stores</option>
+                <option value="Vector DBMS">Vector DBMS</option>
+                <option value="Multivalue DBMS">Multivalue DBMS</option>
+                <option value="Native XML DBMS">Native XML DBMS</option>
+                <option value="Spatial DBMS">Spatial DBMS</option>
+                <option value="Event Stores">Event Stores</option>
+                <option value="Content stores">Content stores</option>
+                <option value="Navigational DBMS">Navigational DBMS</option>
+            </select><br>
+
+            <label for="secondaryModels">Secondary Models:</label><br>
+            <textarea name="secondaryModels" placeholder="Enter one per line" required></textarea><br>
+
+            <label for="vendor">Vendor:</label><br>
+            <input type="text" name="vendor" placeholder="Vendor" required><br>
+
+            <label for="dbFlavors">DB Flavors:</label><br>
+            <textarea name="dbFlavors" placeholder="Enter one per line" required></textarea><br>
+
+            <label for="currentLTSRelease">Current LTS Release:</label><br>
+            <input type="text" name="currentLTSRelease" placeholder="Current LTS Release" required><br>
+
+            <label for="supportedDBVersions">Supported Database Versions:</label><br>
+            <input type="text" name="supportedDBVersions" placeholder="Supported Database Versions" required><br>
+
+            <label for="supportedOSVersions">Supported OS Versions:</label><br>
+            <input type="text" name="supportedOSVersions" placeholder="Supported OS Versions" required><br>
+
+            <label for="ReplicationTools">Replication Tools:</label><br>
+            <textarea name="ReplicationTools" placeholder="Enter one per line" required></textarea><br>
+
+            <label for="HighAvailability">High Availability:</label><br>
+            <textarea name="HighAvailability" placeholder="Enter one per line" required></textarea><br>
+
+            <input type="submit" value="Add">
+        </form>
+    </div>
+
+    <%- include('partials/footer') %>

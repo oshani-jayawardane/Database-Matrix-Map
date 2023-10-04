@@ -1,0 +1,62 @@
+button {
+    margin: 10px;
+    padding: 10px;
+}
+
+.new-entry button {
+    font-size: 20px;
+}
+
+table {
+    width: 95%;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+footer p {
+    text-align: center;
+}
+
+.form-add {
+    width: 80%;
+    margin: auto;
+}
+
+/* Style the form */
+form {
+    padding: 20px;
+}
+
+/* Style the labels and inputs */
+label,
+input,
+select,
+textarea {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Style the input and textarea elements */
+input,
+select,
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Style the submit button */
+input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}

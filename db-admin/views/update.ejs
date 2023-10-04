@@ -1,0 +1,81 @@
+<%- include('partials/header') %>
+
+<div class="form-add">
+    <form action="/admin/update/<%= db._id %>" method="patch">
+        <label for="name">Database Name:</label><br>
+        <input type="text" name="name" value="<%= db.name %>" required><br>
+
+        <label for="image">Logo Image URL:</label><br>
+        <input type="text" name="image" value="<%= db.image %>" required><br>
+
+        <label for="dbModel">Primary Database Model:</label><br>
+        <select name="dbModel" required>
+            <% ['Relational DBMS', 'Key-value stores', 'Document stores', 'Time Series DBMS', 'Graph DBMS', 'Search engines', 'Object oriented DBMS', 'RDF stores', 'Wide column stores', 'Vector DBMS', 'Multivalue DBMS', 'Native XML DBMS', 'Spatial DBMS', 'Event Stores', 'Content stores', 'Navigational DBMS'].forEach((model) => { %>
+                <option value="<%= model %>" <%= db.dbModel === model ? 'selected' : '' %>><%= model %></option>
+            <% }) %>
+        </select><br>
+
+        <label for="secondaryModels">Secondary Models:</label><br>
+        <textarea name="secondaryModels" required><%= db.secondaryModels.join(', ') %></textarea><br>
+
+        <label for="vendor">Vendor:</label><br>
+        <input type="text" name="vendor" value="<%= db.vendor %>" required><br>
+
+        <label for="dbFlavors">DB Flavors:</label><br>
+        <textarea name="dbFlavors" required><%= db.dbFlavors.join(', ') %></textarea><br>
+
+        <label for="currentLTSRelease">Current LTS Release:</label><br>
+        <input type="text" name="currentLTSRelease" value="<%= db.currentLTSRelease %>" required><br>
+
+        <label for="supportedDBVersions">Supported Database Versions:</label><br>
+        <input type="text" name="supportedDBVersions" value="<%= db.supportedDBVersions %>" required><br>
+
+        <label for="supportedOSVersions">Supported OS Versions:</label><br>
+        <input type="text" name="supportedOSVersions" value="<%= db.supportedOSVersions %>" required><br>
+
+        <label for="ReplicationTools">Replication Tools:</label><br>
+        <textarea name="ReplicationTools" required><%= db.ReplicationTools.join(', ') %></textarea><br>
+
+        <label for="HighAvailability">High Availability:</label><br>
+        <textarea name="HighAvailability" required><%= db.HighAvailability.join(', ') %></textarea><br>
+
+        <input type="submit" value="Update">
+    </form>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('form');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submit
+
+            const id = "<%= db._id %>"; // Fetch ID from EJS variable
+            const formData = new FormData(form);
+
+            // Convert FormData to JSON
+            const data = {};
+            formData.forEach((value, key) => { data[key] = value });
+
+            // Send a PATCH request
+            fetch(`/admin/update/${id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Redirect or reload page here
+                window.location.href = '/admin';
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
+    });
+</script>
+
+
+<%- include('partials/footer') %>
